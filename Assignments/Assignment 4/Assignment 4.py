@@ -75,6 +75,7 @@ while player:
         print("You lost all", startingChips,"in", numRuns, "spins\nThe most chips you had was", maxChips)
         player = play_again()
         numRuns = 0
+        maxChips = -500
     
 
 
