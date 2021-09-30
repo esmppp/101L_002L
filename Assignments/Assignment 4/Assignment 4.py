@@ -1,11 +1,11 @@
 import random
 def play_again():
     userInput = input("Do you want to play again? ==> ")
-    while not(userInput.upper == "YES" or userInput.upper == "Y" or userInput.upper == "N" or userInput.upper == "NO"):
+    while not(userInput.upper() == "YES" or userInput.upper() == "Y" or userInput.upper() == "N" or userInput.upper() == "NO"):
         print()
         print("You must enter Y/YES/N/NO to continue. Please try again")
         userInput = input("Do you want to play again? ==> ")
-    if userInput.upper == "YES" or userInput.upper == "Y":
+    if userInput.upper() == "YES" or userInput.upper() == "Y":
         return True
     else:
         return False
@@ -74,6 +74,7 @@ while player:
     if(chipsHeld == 0):
         print("You lost all", startingChips,"in", numRuns, "spins\nThe most chips you had was", maxChips)
         player = play_again()
+        numRuns = 0
     
 
 
