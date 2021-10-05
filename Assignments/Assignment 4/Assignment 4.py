@@ -1,4 +1,17 @@
+########################################################################
+##
+## CS 101 Lab
+## Program # 4
+## Name Ethan Miller
+## Email esmppp@umsystem.edu
+##
+## PROBLEM : Describe the problem
+##          We are making a slot machine that you can play! You choose how much you start with and how much to bet, and you go until you're broke!
+## ALGORITHM : 
+##      1. Write out the algorithm
+## 
 import random
+
 def play_again():
     userInput = input("Do you want to play again? ==> ")
     while not(userInput.upper() == "YES" or userInput.upper() == "Y" or userInput.upper() == "N" or userInput.upper() == "NO"):
@@ -76,7 +89,10 @@ while player:
         player = play_again()
         numRuns = 0
         maxChips = -500
-    
-
-
-    
+## ERROR HANDLING:
+##      Any Special Error handling to be noted.  Wager not less than 0. etc
+##      I had some trouble resetting the values to play again, but I just needed to add numRuns = 0 and maxChips = -500 at the end
+## OTHER COMMENTS:
+##      Any special comments
+##      
+########################################################################
