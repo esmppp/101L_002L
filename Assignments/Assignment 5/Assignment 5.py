@@ -48,8 +48,8 @@ def verify_check_digit(string):
     for i in range(0,5):
         if string[i] not in alphabet:
             return (False, 'The first 5 characters must be A-Z, the invalid character is at {} is {}'.format(i,string[i]))
-    for i in range(6,10):
-        if not(0<=int(string[i])<=9):
+    for i in range(7,10):
+        if not(string[i].isnumeric()):
             return(False, "The last 3 characters must be 0-9, the invalid character is at {} is {}".format(i, string[i]))
     if not(string[5] == '3' or string[5] == '2' or string[5] == '1'):
         return (False, "The sixth character must be 1 2 or 3")
