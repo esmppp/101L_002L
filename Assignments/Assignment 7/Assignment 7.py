@@ -45,6 +45,7 @@ for row in lines[1:]:
         tempList = row.split('\t')
         mpgComp = int(tempList[7])
         if mpgComp >= mpg:
-            myOutput.write('{:<40}{:<40}{:<40}{:>10}'.format(tempList[0], tempList[1], tempList[2], tempList[7]))
+            outing = '{:<40}{:<40}{:<40}{:>10}'.format(tempList[0], tempList[1], tempList[2], tempList[7])
+            myOutput.write(outing +'\n')
     except:
         print("Could not convert value", tempList[7], 'for', tempList[0], tempList[1], tempList[2])
