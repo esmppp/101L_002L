@@ -29,16 +29,6 @@ def stageChecker():
   while staged not in '12Qq':
     staged = input("ERROR TRY AGAIN\n1) Encode a string\n2) Decode a string\nQ) Quit\nEnter your selection ==> ")
   return staged
-# Checks to make sure the key that was entered is a valid number, also it checks for errors if the user inputs a string, etc.
-def checkKey():
-  newNum = 0
-  while not(1<=newNum<=25):
-    #if the user inputs something that isnt an integer, the except executes and continues to loop the user through the while loop
-    try:
-      newNum = int(input("Enter the number to shift letters by: "))
-    except:
-      print("Something went wrong, try again. Make sure it's a number between 1-25, inclusive.\nEnter the number to shift letters by: ")
-  return newNum
 
 #This is the actual Caeser Cipher. It uses nested if-elif-else statements to check if the character is capital or lowercase, and if it goes beyond A-Z and needs to loop around
 def Encrypt(string, givenKey):
@@ -103,7 +93,7 @@ while stage.upper() != "Q":
   if(stage.upper() == "1"):
     print()
     message = input("Enter (brief) text to encrypt: ")
-    key = checkKey()
+    key = int(input('Enter the number to shift letters by: '))
     codedMessage = Encrypt(message,key)
     print("Encrypted:", codedMessage)
     print()
@@ -111,7 +101,7 @@ while stage.upper() != "Q":
   if(stage.upper() == "2"):
     print()
     codedMessage = input("Enter (brief) text to decrypt: ")
-    key = checkKey()
+    key = int(input('Enter the number to shift letters by: '))
     #Reverses the key to decode
     key = -key
     decodedMessage = Decrypt(codedMessage,key)
