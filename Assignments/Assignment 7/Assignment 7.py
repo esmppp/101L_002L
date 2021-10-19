@@ -1,31 +1,50 @@
-mpg = 1
-while not(0<mpg<=100):
-    try:
-        mpg = int(input("Enter the minimum mpg ==> "))
-        if(mpg<=0):
-            print('Fuel economy given must be greater than 0')
-        if(mpg >=100):
-            print('Fuel economy must be less than 100')
-        mpg = int(input("Enter the minimum mpg ==> "))
-    except:
-        print("You must enter a number for the fuel economy")
-fileName = ''
-myFile = ''
-while not(fileName != 'vehicle2.txt' or fileName != 'vehicles.txt'):
-    try:
-        fileName = input('Enter the name of the input vehicle file ==> ')
-        myFile = open(fileName,'r')
-    except:
-        print('Could not open file', fileName)
+def checkMPG():
+    mpg = 0
+    while not(0<mpg<100):
+        try:
+            mpg = int(input("Enter the minimum mpg ==> "))
+            if(0>=mpg):
+                print("Fuel economy given must be greater than 0")
+            if(100<=mpg):
+                print("Fuel economy must be less than 100")
+            if(0<mpg<100):
+                return mpg
+        except:
+            print("You must enter a number for the fuel economy")
+
+def openingFile():
+    check = True
+    while check:
+        try:
+            fileName = input("Enter the name of the input vehicle file ==> ")
+            myFile = open(fileName,'r')
+            return myFile
+        except:
+            print("Could not open file", fileName)
+
+def writingFile():
+    check = True
+    while check:
+        try:
+            out = input("Enter the name of the file to output to ==> ")
+            myOutput = open(out,'w')
+            return myOutput
+        except:
+            print("There is an IO Error", out)
+
+mpg = checkMPG()
+print()
+#Need to figure out how to open a file with Visual Studio Code
+myFile = openingFile()
+print()
+myOutput= writingFile()
 
 lines = myFile.readlines()
-listOfCars = {}
-for line in lines:
-    tempList = line.split('\t')
-    #make = year, model, combinedmpg
-    listOfCars[tempList[1]] = [tempList[0],tempList[2],tempList[7]]
-
-for key in listOfCars:
-    if listOfCars[key][2] >= mpg:
-        print("{:<40}{:<40}{:<40}{:>10}".format(listOfCars[key][0],key,listOfCars[key][1]),listOfCars[key][2])
-
+for row in lines[1:]:
+    try:
+        tempList = row.split('\t')
+        mpgComp = int(tempList[7])
+        if mpgComp >= mpg:
+            myOutput.write('{:<40}{:<40}{:<40}{:>10}'.format(tempList[0], tempList[1], tempList[2], tempList[7]))
+    except:
+        print("Could not convert value", tempList[7], 'for', tempList[0], tempList[1], tempList[2])
