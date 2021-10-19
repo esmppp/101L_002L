@@ -8,7 +8,7 @@ def checkMPG():
             if(100<=mpg):
                 print("Fuel economy must be less than 100")
             if(0<mpg<100):
-                return mpg
+                return int(mpg)
         except:
             print("You must enter a number for the fuel economy")
 
@@ -43,9 +43,15 @@ lines = myFile.readlines()
 for row in lines[1:]:
     try:
         tempList = row.split('\t')
-        mpgComp = int(tempList[7])
+        #print(tempList)
+        mpgComp = tempList[7]
+        mpgComp = int(mpgComp)
         if mpgComp >= mpg:
-            outing = '{:<40}{:<40}{:<40}{:>10}'.format(tempList[0], tempList[1], tempList[2], tempList[7])
-            myOutput.write(outing +'\n')
+            outing = '{:<5}{:<15}{:<35}{:>10}'.format(tempList[0], tempList[1], tempList[2], tempList[7])
+            #print(outing)
+            myOutput.write(outing + '\n')
     except:
         print("Could not convert value", tempList[7], 'for', tempList[0], tempList[1], tempList[2])
+
+myFile.close()
+myOutput.close()
