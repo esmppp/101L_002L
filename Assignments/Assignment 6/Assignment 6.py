@@ -3,8 +3,7 @@
 ##CS 101 
 ##Program 6
 ##
-##PROBLEM: Do Caesar Encryption/Decryption, including cracking a string w/ 
-##  unknown Caesar key. 
+##PROBLEM: Do Caesar Encryption/Decryption
 ##  
 ##Functions needed: 
 ##  Encrypt(string_text, int_key): Takes a string and integer key, returns 
