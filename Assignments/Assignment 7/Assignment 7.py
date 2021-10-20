@@ -32,9 +32,9 @@ def writingFile():
     while check:
         try:
             out = input("Enter the name of the file to output to ==> ")
-            myOutput = open(out,'w')
+            myOutput = open(out,'r+')
             return myOutput
-        except EOFError:
+        except IOError:
             print("There is an IO Error", out)
         except:
             print("There is an IO Error", out)
