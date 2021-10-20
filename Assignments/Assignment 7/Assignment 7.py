@@ -1,3 +1,8 @@
+# Ethan Miller
+# CS101L
+# esmppp@umsystem.edu
+# Fuel Economy (Lab Week 8 - File handling, Try except)
+# Special handling: If a file is not found in openingFile(), then an except is called and the code continues to run
 def checkMPG():
     mpg = 0
     while not(0<mpg<100):
@@ -47,8 +52,7 @@ for row in lines[1:]:
         mpgComp = tempList[7]
         mpgComp = int(mpgComp)
         if mpgComp >= mpg:
-            form = '{:.3f}'.format(mpgComp)
-            outing = '{:<40}{:<40}{:<40}{:>10}'.format(tempList[0], tempList[1], tempList[2], form)
+            outing = '{:<40}{:<40}{:<40}{:>10.3f}'.format(tempList[0], tempList[1], tempList[2], mpgComp)
             #print(outing)
             myOutput.write(outing + '\n')
     except:
