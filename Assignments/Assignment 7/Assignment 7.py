@@ -34,6 +34,8 @@ def writingFile():
             out = input("Enter the name of the file to output to ==> ")
             myOutput = open(out,'w')
             return myOutput
+        except EOFError:
+            print("There is an IO Error", out)
         except:
             print("There is an IO Error", out)
 
