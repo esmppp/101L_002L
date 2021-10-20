@@ -47,7 +47,8 @@ for row in lines[1:]:
         mpgComp = tempList[7]
         mpgComp = int(mpgComp)
         if mpgComp >= mpg:
-            outing = '{:<5}{:<15}{:<35}{:>10}'.format(tempList[0], tempList[1], tempList[2], tempList[7])
+            form = '{:.3f}'.format(mpgComp)
+            outing = '{:<40}{:<40}{:<40}{:>10}'.format(tempList[0], tempList[1], tempList[2], form)
             #print(outing)
             myOutput.write(outing + '\n')
     except:
