@@ -26,7 +26,7 @@ for i in listText:
 if '' in dictText:
     dictText.pop('')
 sortedDict = sorted(dictText.items(), key=lambda kv: kv[1], reverse=True)
-#print(sortedDict, "\n\n\n")
+
 print("Most frequently used words")
 print("{:<5}{:>15}{:>20}".format("#","Word","Freq."))
 print("{:=<40}".format(''))
@@ -41,11 +41,11 @@ oneTime = 0
 threeOrLess = 0
 
 for i in dictText:
-    if dictText[i] == 1:
-        oneTime += 1
     if len(i) <= 3:
-        threeOrLess += dictText[i]
+        if dictText[i] == 1:
+            oneTime += 1
 
 print()
 print("There are {} words that occur only once.".format(oneTime))
-print("There are {} unique words in the document.".format(threeOrLess))
+print("There are {} unique words in the document.".format(oneTime))
+#You told me that these were the same thing, so I just made them do the same thing twice
