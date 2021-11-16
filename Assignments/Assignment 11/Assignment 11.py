@@ -1,4 +1,4 @@
-from Clock import Clock
+import Clock
 import time
 seconds = 0
 hours = int(input("What is the current hour ==> "))
