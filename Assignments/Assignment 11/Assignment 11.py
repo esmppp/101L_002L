@@ -11,9 +11,9 @@ class Clock():
                 time = 'pm'
             else:
                 time = 'am'
-            return"{:2}:{:2}:{:0>2} {}".format(self.hour, self.minute,self.sec, time)
+            return"{:2}:{:0>2}:{:0>2} {}".format(self.hour, self.minute,self.sec, time)
         else:
-            return"{:2}:{:2}:{:0>2}".format(self.hour, self.minute,self.sec)
+            return"{:2}:{:0>2}:{:0>2}".format(self.hour, self.minute,self.sec)
 
     def tick(self):
         self.sec += 1
